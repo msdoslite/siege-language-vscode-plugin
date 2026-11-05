@@ -1,0 +1,82 @@
+{
+  "name": "Siege Skrit",
+  "scopeName": "source.siege-skrit",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash",
+      "begin": "//",
+      "end": "$"
+    },
+    {
+      "name": "comment.block",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "name": "meta.preprocessor.skrit",
+      "begin": "^[ \\t]*#(?i:include|option|only)\\b",
+      "end": "$",
+      "patterns": [
+        {
+          "name": "string.quoted.double",
+          "begin": "\"",
+          "end": "\""
+        },
+        {
+          "name": "keyword.control.directive",
+          "match": "#\\w+"
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.double.skrit",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.skrit",
+          "match": "\\\\(?:x[0-9A-Fa-f]{1,2}|.)"
+        }
+      ]
+    },
+    {
+      "name": "string.quoted.single.skrit",
+      "begin": "'",
+      "end": "'",
+      "patterns": [
+        {
+          "name": "constant.character.escape.skrit",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "storage.type.skrit",
+      "match": "\\b(?i:bool|int|float|string|void)\\b"
+    },
+    {
+      "name": "keyword.control.skrit",
+      "match": "\\b(?i:if|else|while|break|continue|forever|return|shared|property|hidden|sitnspin|abort|msec|frames|doc|event|trigger|at|__LINE__|__NAME__|state|poll|transition|and|startup|setstate|this|vm|owner|include|option|only|my|gas)\\b"
+    },
+    {
+      "name": "constant.language.skrit",
+      "match": "\\b(?i:true|false|null)\\b"
+    },
+    {
+      "name": "entity.name.function.skrit",
+      "match": "[A-Za-z_][A-Za-z0-9_]*\\$?(?=\\s*\\()"
+    },
+    {
+      "name": "variable.other.skrit",
+      "match": "[A-Za-z_][A-Za-z0-9_]*\\$"
+    },
+    {
+      "name": "constant.numeric.skrit",
+      "match": "\\b0[xX][0-9a-fA-F]+\\b|(?:\\b[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?"
+    },
+    {
+      "name": "keyword.operator.skrit",
+      "match": "\\*\\*=|\\*\\*|->|[+*/%<>=!~&|^?:-]+"
+    }
+  ]
+}

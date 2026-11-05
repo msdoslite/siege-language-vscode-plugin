@@ -1,0 +1,14 @@
+{
+  "name": "Siege startup manifest",
+  "scopeName": "source.siege-gpg",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash",
+      "match": "^\\s*//.*$"
+    },
+    {
+      "name": "string.unquoted.path.siege",
+      "match": ".+"
+    }
+  ]
+}

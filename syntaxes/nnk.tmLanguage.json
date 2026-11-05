@@ -1,0 +1,22 @@
+{
+  "name": "Siege Naming Key",
+  "scopeName": "source.siege-nnk",
+  "patterns": [
+    {
+      "name": "comment.line.nnk",
+      "match": "(?:#|//).*$"
+    },
+    {
+      "name": "keyword.other.nnk",
+      "match": "^\\s*(?i:TREE|CANIMCLASS)(?=\\s*=)"
+    },
+    {
+      "name": "constant.other.nnk",
+      "match": "\\b[ABKMST](?:_[A-Za-z0-9_]+)?\\b"
+    },
+    {
+      "name": "punctuation.separator.nnk",
+      "match": "[=,]"
+    }
+  ]
+}

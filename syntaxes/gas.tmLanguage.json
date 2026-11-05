@@ -1,0 +1,67 @@
+{
+  "name": "Siege GAS",
+  "scopeName": "source.siege-gas",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash",
+      "begin": "//",
+      "end": "$"
+    },
+    {
+      "name": "comment.block",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "name": "meta.block.header.gas",
+      "begin": "\\[(?!\\[)",
+      "end": "\\]",
+      "patterns": [
+        {
+          "name": "keyword.other.gas",
+          "match": "\\b(?:t|n):|\\bdev(?=,)"
+        },
+        {
+          "name": "entity.name.type.gas",
+          "match": "[A-Za-z0-9_*$.-]+"
+        }
+      ]
+    },
+    {
+      "name": "meta.property.gas",
+      "begin": "(?:([bdfipqsvx])([ \\t]))?([A-Za-z0-9_*$.-]+(?:\\s*:\\s*[A-Za-z0-9_*$.-]+)*)\\s*(@?=)",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.gas"
+        },
+        "3": {
+          "name": "variable.other.property.gas"
+        },
+        "4": {
+          "name": "keyword.operator.assignment.gas"
+        }
+      },
+      "end": ";|(?=})",
+      "patterns": [
+        {
+          "name": "string.quoted.other.multiline.gas",
+          "begin": "\\[\\[",
+          "end": "\\]\\]"
+        },
+        {
+          "name": "string.quoted.double.gas",
+          "begin": "\"",
+          "end": "\""
+        },
+        {
+          "name": "constant.language.gas",
+          "match": "\\b(?i:true|false)\\b"
+        },
+        {
+          "name": "constant.numeric.gas",
+          "match": "(?<![A-Za-z_])[-+]?(?:0[xX][0-9a-fA-F]+|(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?[fF]?)"
+        }
+      ]
+    }
+  ]
+}

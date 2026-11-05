@@ -1,0 +1,82 @@
+name: GitHub Release
+
+on:
+  push:
+    branches:
+      - release
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Test, package and release VSIX
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the pushed commit
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+
+      - name: Choose the next release version
+        id: version
+        run: node scripts/next-release-version.js
+
+      - name: Install build dependencies
+        run: npm ci
+
+      - name: Set package and lockfile version
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: npm version "$RELEASE_VERSION" --no-git-tag-version --ignore-scripts --allow-same-version
+
+      # npm run package runs checks and tests through vscode:prepublish.
+      - name: Check, test and build VSIX
+        run: npm run package
+
+      - name: Name the release asset
+        env:
+          RELEASE_ASSET: ${{ steps.version.outputs.asset }}
+        run: mv siege-language-tools.vsix "$RELEASE_ASSET"
+
+      - name: Save version to the release branch
+        id: commit
+        env:
+          RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: release $RELEASE_VERSION [skip ci]"
+          fi
+          # A concurrent push is rejected rather than overwriting newer source.
+          git push origin HEAD:refs/heads/release
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release and attach VSIX
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ steps.version.outputs.tag }}
+          RELEASE_ASSET: ${{ steps.version.outputs.asset }}
+          RELEASE_COMMIT: ${{ steps.commit.outputs.sha }}
+        run: |
+          gh release create "$RELEASE_TAG" "$RELEASE_ASSET" \
+            --target "$RELEASE_COMMIT" \
+            --title "Siege Language Tools $RELEASE_TAG" \
+            --notes "VSIX package for Siege Language Tools $RELEASE_TAG."

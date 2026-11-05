@@ -1,0 +1,10 @@
+{
+  "name": "Siege dependencies",
+  "scopeName": "source.siege-required",
+  "patterns": [
+    {
+      "name": "string.unquoted.path.siege",
+      "match": ".+"
+    }
+  ]
+}

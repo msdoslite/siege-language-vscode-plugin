@@ -1,0 +1,55 @@
+{
+  "Function": {
+    "prefix": "function",
+    "body": [
+      "${1:void} ${2:name}\\$(${3})",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "Skrit function"
+  },
+  "Property": {
+    "prefix": "property",
+    "body": "property ${1:int} ${2:name}\\$ = ${3:0} doc = \"${4:Description}\";"
+  },
+  "State": {
+    "prefix": "state",
+    "body": [
+      "state ${1:Idle}\\$",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+  "While": {
+    "prefix": "while",
+    "body": [
+      "while (${1:true})",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+  "If": {
+    "prefix": "if",
+    "body": [
+      "if (${1:true})",
+      "{",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Include": {
+    "prefix": "#include",
+    "body": "#include \"${1:path.skrit}\""
+  },
+  "Only": {
+    "prefix": "#only",
+    "body": [
+      "#only(${1:game}) [[",
+      "$0",
+      "]]"
+    ]
+  }
+}

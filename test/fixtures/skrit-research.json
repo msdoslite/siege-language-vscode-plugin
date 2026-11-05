@@ -1,0 +1,2592 @@
+[
+  {
+    "profile": "dsloa",
+    "source": "",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "int x$;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "int x$, y$;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "property int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "property int x$ = 1 doc = \"text\";",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "shared int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "hidden property int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "property hidden int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f$ { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f$() { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f$(int a$, float b$) { return a$ + b$; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f() { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f$(int a$);",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { int x$ = 1; x$ = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { if (true) return; else return; }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { while (true) { break; } }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { forever { continue; } }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { break; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { for (int i$ = 0; i$ < 3; i$ += 1) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { do {} while (true); }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { switch (1) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "startup state Idle$ {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { setstate Idle$; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "owner = GoSkritComponent;",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { trigger Tick$() {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { trigger Tick$(1) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { poll Tick$() {} }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { Tick$ at (5 frames) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { Tick$ at (100 msec) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { a$ = b$ = 1; }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { a$ **= 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { Obj.Method(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { abort; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { sitnspin; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { return }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { if (true) { return; } else { return; } }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { if (true) { return; } }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { while (true) break; }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { forever continue; }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { if (true) {} else if (false) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { void f$() {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "trigger Tick$() {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { poll {} }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { poll (true) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "float f$() { return(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { a$ = (b$ = 1); }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "void f$() { ; }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ poll (100 msec) {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ poll 100 msec {}",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { poll = 100; }",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ at (100 msec) {}",
+    "accepted": false
+  },
+  {
+    "profile": "dsloa",
+    "source": "event Tick$(int a$) {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { event Tick$(int a$) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "trigger Tick$(int a$) {}",
+    "accepted": true
+  },
+  {
+    "profile": "dsloa",
+    "source": "state Idle$ { state Inner$ {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$, y$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "property int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "property int x$ = 1 doc = \"text\";",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "shared int x$ = 1;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "hidden property int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "property hidden int x$ = 1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$ { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$() { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(int a$, float b$) { return a$ + b$; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f() { return 1; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(int a$);",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { int x$ = 1; x$ = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { if (true) return; else return; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { while (true) { break; } }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { forever { continue; } }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { break; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { for (int i$ = 0; i$ < 3; i$ += 1) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { do {} while (true); }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { switch (1) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "startup state Idle$ {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { setstate Idle$; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "owner = GoSkritComponent;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { trigger Tick$() {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { trigger Tick$(1) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { poll Tick$() {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { Tick$ at (5 frames) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { Tick$ at (100 msec) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { a$ = b$ = 1; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { a$ **= 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { Obj.Method(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { abort; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { sitnspin; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { return }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { if (true) { return; } else { return; } }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { if (true) { return; } }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { while (true) break; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { forever continue; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { if (true) {} else if (false) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { void f$() {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "trigger Tick$() {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { poll {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { poll (true) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$() { return(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { a$ = (b$ = 1); }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { ; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ poll (100 msec) {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ poll 100 msec {}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { poll = 100; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ at (100 msec) {}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "event Tick$(int a$) {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { event Tick$(int a$) {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "trigger Tick$(int a$) {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state Idle$ { state Inner$ {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: OnTimer(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: if (true); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: if (true) = {} }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: if (true) {} }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition { -> B$: OnTimer(1); -> C$: if (false); } }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "transition A$ -> B$: OnTimer(1);",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "transition -> B$: OnTimer(1);",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: OnTimer(1) and if (true); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: if (true) and OnTimer(1); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ { transition -> B$: OnTimer(1) and OnOther(2); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ poll (0.5) {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "event OnEnterState$ {}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { Obj.Get().Method(); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { Get$()(); }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { Obj.Field = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { 1 = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { (a$ + 1) = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { Get$() = 2; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$() { a$ = (1,2); }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int f$() { return a$ = 2; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$() { return +1; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int f$() { return ~1; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = 0;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = -1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = +1;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = -1.5;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = +1.5;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = 1e3;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = 0xff;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = true;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = false;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = null;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = \"text\";",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = \"a\" \"b\";",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = (1);",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = (-1);",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = (int)1.5;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = int(1.5);",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = 1+2;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = ~1;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = !false;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = other$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = Math.PI;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$ = Get$();",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$; int x$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){int x$; int x$;}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){int x$; if(true){int x$;}}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$; void f$(){int x$;}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "shared int x$;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){shared int x$;}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){property int x$;}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "state A$ {property int x$;}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "shared property int x$=1;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "property shared int x$=1;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$=1 doc=\"text\";",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "property int x$=1 doc=\"text\";",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "hidden int x$;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$=1+2;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$=Get$();",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){int x$=Get$();}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "my int x$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "my int x$=1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){ my int x$; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){ my int x$=1; }",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "property my int x$;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "my void f$(){}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "gas int x$;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "gas int x$=1;",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){ gas int x$; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){ gas int x$=1; }",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "property gas int x$;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "gas void f$(){}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "string x$=:A:;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "int x$=:A:;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "Go x$=:A:;",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){Obj.Call(:A:);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){return +1;}",
+    "accepted": false
+  },
+  {
+    "profile": "ds2",
+    "source": "void f$(){return -1;}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ** 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 * 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 / 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 % 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 + 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 - 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 < 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 <= 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 > 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 >= 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 == 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 != 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ~= 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 & 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 ^ 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 | 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 && 2 || 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 ** 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 * 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 / 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 % 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 + 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 - 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 < 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 <= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 > 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 >= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 == 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 != 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 ~= 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 & 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 ^ 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 | 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 && 3);}",
+    "accepted": true
+  },
+  {
+    "profile": "ds2",
+    "source": "float f$(){return(1 || 2 || 3);}",
+    "accepted": true
+  }
+]

@@ -1,0 +1,328 @@
+{
+  "name": "siege-language-tools",
+  "displayName": "Siege Language Tools",
+  "description": "Fast GAS, Skrit, Flick and Naming Key support with workspace diagnostics, completion and navigation.",
+  "version": "1.0.0",
+  "publisher": "msdoslite",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "Dungeon Siege",
+    "GAS",
+    "Skrit",
+    "Flick",
+    "Space Siege"
+  ],
+  "main": "./src/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "scripts": {
+    "generate": "node scripts/generate-assets.js",
+    "check": "node scripts/check.js",
+    "test": "node --test test/*.test.js",
+    "vscode:prepublish": "npm run check && npm test",
+    "package": "vsce package --out siege-language-tools.vsix",
+    "package:list": "vsce ls"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "siege-gas",
+        "aliases": [
+          "Siege GAS",
+          "GAS"
+        ],
+        "extensions": [
+          ".gas"
+        ],
+        "configuration": "./syntaxes/gas-configuration.json"
+      },
+      {
+        "id": "siege-skrit",
+        "aliases": [
+          "Siege Skrit",
+          "Skrit"
+        ],
+        "extensions": [
+          ".skrit"
+        ],
+        "configuration": "./syntaxes/skrit-configuration.json"
+      },
+      {
+        "id": "siege-flick",
+        "aliases": [
+          "Siege Flick",
+          "Flick"
+        ],
+        "extensions": [
+          ".flick"
+        ],
+        "configuration": "./syntaxes/flick-configuration.json"
+      },
+      {
+        "id": "siege-nnk",
+        "aliases": [
+          "Siege Naming Key",
+          "NNK"
+        ],
+        "extensions": [
+          ".nnk",
+          ".NNK"
+        ],
+        "configuration": "./syntaxes/nnk-configuration.json"
+      },
+      {
+        "id": "siege-required",
+        "aliases": [
+          "Siege dependencies"
+        ],
+        "filenames": [
+          "$required"
+        ]
+      },
+      {
+        "id": "siege-gpg",
+        "aliases": [
+          "Siege startup manifest"
+        ],
+        "filenames": [
+          "startup_verify.gpg"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "siege-gas",
+        "scopeName": "source.siege-gas",
+        "path": "./syntaxes/gas.tmLanguage.json"
+      },
+      {
+        "language": "siege-skrit",
+        "scopeName": "source.siege-skrit",
+        "path": "./syntaxes/skrit.tmLanguage.json"
+      },
+      {
+        "language": "siege-flick",
+        "scopeName": "source.siege-flick",
+        "path": "./syntaxes/flick.tmLanguage.json"
+      },
+      {
+        "language": "siege-nnk",
+        "scopeName": "source.siege-nnk",
+        "path": "./syntaxes/nnk.tmLanguage.json"
+      },
+      {
+        "language": "siege-required",
+        "scopeName": "source.siege-required",
+        "path": "./syntaxes/required.tmLanguage.json"
+      },
+      {
+        "language": "siege-gpg",
+        "scopeName": "source.siege-gpg",
+        "path": "./syntaxes/gpg.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "siege-gas",
+        "path": "./snippets/gas.json"
+      },
+      {
+        "language": "siege-skrit",
+        "path": "./snippets/skrit.json"
+      },
+      {
+        "language": "siege-flick",
+        "path": "./snippets/flick.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "siege.reindex",
+        "title": "Siege: Reindex Workspace"
+      },
+      {
+        "command": "siege.selectProfile",
+        "title": "Siege: Select Game Profile"
+      },
+      {
+        "command": "siege.showOutput",
+        "title": "Siege: Show Analysis Log"
+      },
+      {
+        "command": "siege.profile.dsloa",
+        "title": "Siege: Use DSLOA / Dungeon Siege Profile"
+      },
+      {
+        "command": "siege.profile.ds2",
+        "title": "Siege: Use Dungeon Siege II Profile"
+      },
+      {
+        "command": "siege.profile.space-siege",
+        "title": "Siege: Use Space Siege Profile"
+      }
+    ],
+    "configuration": {
+      "title": "Siege Language Tools",
+      "properties": {
+        "siege.profile": {
+          "type": "string",
+          "enum": [
+            "dsloa",
+            "ds2",
+            "space-siege"
+          ],
+          "default": "dsloa",
+          "scope": "resource",
+          "description": "Game syntax profile. Mod tools use the DSLOA table profile."
+        },
+        "siege.indexWorkspace": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Automatically index unopened project files."
+        },
+        "siege.diagnostics.enable": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Publish syntax and supported semantic diagnostics to Problems."
+        },
+        "siege.diagnostics.debounceMs": {
+          "type": "integer",
+          "default": 250,
+          "minimum": 50,
+          "maximum": 5000,
+          "scope": "resource",
+          "description": "Delay after typing before background validation."
+        },
+        "siege.diagnostics.maxPerFile": {
+          "type": "integer",
+          "default": 200,
+          "minimum": 1,
+          "maximum": 2000,
+          "scope": "resource"
+        },
+        "siege.diagnostics.duplicateProperties": {
+          "type": "string",
+          "enum": [
+            "warning",
+            "off"
+          ],
+          "default": "off",
+          "scope": "resource",
+          "description": "Optional editor warning for repeated named GAS properties. Duplicates are legal; single-value getters select the first match, while consumers can enumerate all entries. * list keys never warn."
+        },
+        "siege.diagnostics.strictStaticNesting": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "description": "Warn about declarations nested in static triggers as a strict editor policy."
+        },
+        "siege.maxFileSizeKB": {
+          "type": "integer",
+          "default": 4096,
+          "minimum": 16,
+          "maximum": 16384,
+          "scope": "resource",
+          "description": "Maximum analyzed file size. Skipped files are reported in the analysis status/log."
+        },
+        "siege.encoding": {
+          "type": "string",
+          "enum": [
+            "utf-8",
+            "windows-1251",
+            "windows-1252"
+          ],
+          "default": "utf-8",
+          "scope": "resource",
+          "description": "Decoding for unopened files. Open documents use the encoding chosen in VS Code."
+        },
+        "siege.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "Additional workspace indexing exclusions. files.exclude and search.exclude are also respected."
+        },
+        "siege.conditions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          },
+          "default": {
+            "game": true,
+            "editor": false
+          },
+          "scope": "resource",
+          "description": "Host condition names used by Skrit #only."
+        },
+        "siege.inlineSkritPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "Additional exact GAS block paths ending in :property whose value is inline Skrit. Generic [[...]] is always just a string."
+        }
+      }
+    },
+    "configurationDefaults": {
+      "[siege-gas]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+      },
+      "[siege-skrit]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+      },
+      "[siege-flick]": {
+        "editor.insertSpaces": false,
+        "editor.tabSize": 4
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msdoslite/siege-language-vscode-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/msdoslite/siege-language-vscode-plugin/issues"
+  },
+  "homepage": "https://github.com/msdoslite/siege-language-vscode-plugin#readme",
+  "devDependencies": {
+    "@vscode/vsce": "4.1.0"
+  },
+  "files": [
+    "src/**",
+    "data/**",
+    "syntaxes/**",
+    "snippets/**",
+    "README.md",
+    "LICENSE",
+    "assets/icon.png"
+  ],
+  "icon": "assets/icon.png"
+}

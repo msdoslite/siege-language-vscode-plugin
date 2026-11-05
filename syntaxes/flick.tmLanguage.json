@@ -1,0 +1,40 @@
+{
+  "name": "Siege Flick",
+  "scopeName": "source.siege-flick",
+  "patterns": [
+    {
+      "name": "comment.line.double-slash",
+      "begin": "//",
+      "end": "$"
+    },
+    {
+      "name": "comment.block",
+      "begin": "/\\*",
+      "end": "\\*/"
+    },
+    {
+      "name": "string.quoted.double.flick",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.flick",
+          "match": "\\\\."
+        }
+      ]
+    },
+    {
+      "name": "keyword.control.flick",
+      "match": "\\b(?i:entry|thread|role|required|external|critical|bool|int|float|string|event|effect|point|if|else|then|and|or|goto|run|branch|jump|wait|duration|until|_persist)\\b"
+    },
+    {
+      "name": "entity.name.label.flick",
+      "begin": "<<",
+      "end": ">>"
+    },
+    {
+      "name": "constant.numeric.flick",
+      "match": "-?(?:0[xX][0-9a-fA-F]+|[0-9]+(?:\\.[0-9]*)?(?:[eE][+-]?[0-9]+)?|\\.[0-9]+)"
+    }
+  ]
+}

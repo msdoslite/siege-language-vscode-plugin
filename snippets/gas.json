@@ -1,0 +1,39 @@
+{
+  "Named block": {
+    "prefix": "block",
+    "body": [
+      "[${1:name}]",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "GAS named block"
+  },
+  "Typed template": {
+    "prefix": "template",
+    "body": [
+      "[t:template,n:${1:name}]",
+      "{",
+      "\t$0",
+      "}"
+    ],
+    "description": "GAS template block"
+  },
+  "Bracket value": {
+    "prefix": "multiline",
+    "body": [
+      "${1:name} = [[",
+      "\t$0",
+      "]];"
+    ],
+    "description": "GAS bracket string (no implicit language)"
+  },
+  "Boolean": {
+    "prefix": "bool",
+    "body": "b ${1:name} = ${2|true,false|};"
+  },
+  "Vector": {
+    "prefix": "vector",
+    "body": "v ${1:name} = ${2:0}, ${3:0}, ${4:0};"
+  }
+}

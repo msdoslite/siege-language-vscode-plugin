@@ -1,0 +1,1066 @@
+[
+  {
+    "source": "",
+    "tokens": [],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "sequence Scene {}",
+    "tokens": [
+      "IDENTIFIER",
+      "IDENTIFIER",
+      "{",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {entry Main;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "entry",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {thread Main {Cmd;}}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {thread Main {}}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {thread Main() {Cmd;}}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "(",
+      ")",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {thread Main(1) {Cmd;}}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "(",
+      "INTEGER",
+      ")",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {thread Main 1 \"X\" {Cmd;}}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "INTEGER",
+      "STRING",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {role Actor;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "role",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {role Actor=0x1234;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "role",
+      "IDENTIFIER",
+      "=",
+      "HEX",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {role Actor=12;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "role",
+      "IDENTIFIER",
+      "=",
+      "INTEGER",
+      ";",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {role(kind,other) Actor;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "role",
+      "(",
+      "IDENTIFIER",
+      ",",
+      "IDENTIFIER",
+      ")",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {required role(kind) Actor;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "required",
+      "role",
+      "(",
+      "IDENTIFIER",
+      ")",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {critical role Actor;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "critical",
+      "role",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {external role Actor;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "external",
+      "role",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {bool A=true;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "bool",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {bool A=true,B=false;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "bool",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ",",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {bool A=true,B=1;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "bool",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ",",
+      "IDENTIFIER",
+      "=",
+      "INTEGER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {int A=1,B=-0x1;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "int",
+      "IDENTIFIER",
+      "=",
+      "INTEGER",
+      ",",
+      "IDENTIFIER",
+      "=",
+      "HEX",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {float A=1.2;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "float",
+      "IDENTIFIER",
+      "=",
+      "FLOAT",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {float A=1;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "float",
+      "IDENTIFIER",
+      "=",
+      "INTEGER",
+      ";",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] {string A=\"x\";}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "string",
+      "IDENTIFIER",
+      "=",
+      "STRING",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {event Ev=Name;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "event",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {effect Fx=\"Name\";}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "effect",
+      "IDENTIFIER",
+      "=",
+      "STRING",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {point Here;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "point",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {external point Here;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "external",
+      "point",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {_persist=true;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "_persist",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] {_persist=A=true;}",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "_persist",
+      "=",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd(); } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "(",
+      ")",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd(1,2.5,\"x\",Actor); } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "(",
+      "INTEGER",
+      ",",
+      "FLOAT",
+      ",",
+      "STRING",
+      ",",
+      "IDENTIFIER",
+      ")",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd 1 2.5 \"x\" Actor; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "INTEGER",
+      "FLOAT",
+      "STRING",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd(0x10); } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "(",
+      "HEX",
+      ")",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] { thread Main { Actor: Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ":",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { <<Label>> Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "<<",
+      "IDENTIFIER",
+      ">>",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { goto Label; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "goto",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd,wait; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ",",
+      "wait",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd,duration 2; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ",",
+      "duration",
+      "INTEGER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd,until Done; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ",",
+      "until",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd,wait,duration 1; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ",",
+      "wait",
+      ",",
+      "duration",
+      "INTEGER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd(1),duration 1.5; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "(",
+      "INTEGER",
+      ")",
+      ",",
+      "duration",
+      "FLOAT",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Cmd [named] 1; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "[",
+      "IDENTIFIER",
+      "]",
+      "INTEGER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if Ready Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "IDENTIFIER",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if(Ready) {Cmd;} } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "(",
+      "IDENTIFIER",
+      ")",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if Ready then Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "IDENTIFIER",
+      "then",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if Ready AND Other Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "IDENTIFIER",
+      "and",
+      "IDENTIFIER",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if Ready OR Other Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "IDENTIFIER",
+      "IDENTIFIER",
+      "IDENTIFIER",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { if Ready {Cmd;} else {Other;} } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "if",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "else",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { else {Cmd;} } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "else",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { else if Ready then Cmd; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "else if",
+      "IDENTIFIER",
+      "then",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { run Other; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "run",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { run Other {Cmd;} } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "run",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { branch Other; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "branch",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { jump Other; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "jump",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Value=Other; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "=",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Value=\"text\"; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "=",
+      "STRING",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  },
+  {
+    "source": "[Scene] { thread Main { Value=1; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      "=",
+      "INTEGER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": false
+  },
+  {
+    "source": "[Scene] { thread Main { return; } }",
+    "tokens": [
+      "[",
+      "IDENTIFIER",
+      "]",
+      "{",
+      "thread",
+      "IDENTIFIER",
+      "{",
+      "IDENTIFIER",
+      ";",
+      "}",
+      "}"
+    ],
+    "accepted": true
+  }
+]

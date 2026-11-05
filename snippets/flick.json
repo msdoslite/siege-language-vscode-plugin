@@ -1,0 +1,15 @@
+{
+  "Scene": {
+    "prefix": "scene",
+    "body": [
+      "[${1:Scene}]",
+      "{",
+      "\tentry ${2:Main};",
+      "\tthread ${2:Main}",
+      "\t{",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ]
+  }
+}
