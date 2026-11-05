@@ -1,0 +1,114 @@
+name: Publish to Marketplace
+run-name: Publish ${{ inputs.tag }} to Marketplace
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Existing GitHub Release tag (for example, v1.0.0)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: marketplace-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish existing release VSIX
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out publishing tools
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          package-manager-cache: false
+
+      - name: Validate release tag
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          node <<'JS'
+          if (!/^v1\.(0|[1-9]\d*)\.0$/.test(process.env.RELEASE_TAG)) {
+            throw new Error('Expected a release tag such as v1.0.0 or v1.10.0');
+          }
+          JS
+
+      - name: Download the existing release VSIX
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          mkdir -p artifact
+          gh api "repos/$GH_REPO/releases/tags/$RELEASE_TAG" > artifact/release.json
+          gh release download "$RELEASE_TAG" \
+            --pattern "siege-language-tools-${RELEASE_TAG#v}.vsix" \
+            --dir artifact
+
+      - name: Verify release identity and package
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          python3 <<'PY'
+          import hashlib, json, os, zipfile
+          from pathlib import Path
+          from xml.etree import ElementTree as ET
+          tag = os.environ['RELEASE_TAG']
+          version = tag[1:]
+          name = f'siege-language-tools-{version}.vsix'
+          root = Path('artifact')
+          release = json.loads((root / 'release.json').read_text())
+          if release['tag_name'] != tag or release['draft'] or release['prerelease']:
+              raise SystemExit('Select a published, stable GitHub Release')
+          assets = [a for a in release['assets'] if a['name'] == name]
+          if len(assets) != 1:
+              raise SystemExit('Expected exactly one matching VSIX release asset')
+          package = root / name
+          digest = hashlib.sha256(package.read_bytes()).hexdigest()
+          asset = assets[0]
+          if package.stat().st_size != asset['size']:
+              raise SystemExit('Downloaded asset size does not match GitHub Release')
+          if asset.get('digest') and asset['digest'] != f'sha256:{digest}':
+              raise SystemExit('Downloaded asset digest does not match GitHub Release')
+          with zipfile.ZipFile(package) as archive:
+              if archive.testzip() is not None:
+                  raise SystemExit('Invalid VSIX archive')
+              manifest = json.loads(archive.read('extension/package.json'))
+              expected = {'name': 'siege-language-tools', 'publisher': 'msdoslite', 'version': version}
+              if any(manifest.get(k) != v for k, v in expected.items()):
+                  raise SystemExit('VSIX name, publisher or version does not match the release')
+              xml = ET.fromstring(archive.read('extension.vsixmanifest'))
+              identity = xml.find('{*}Metadata/{*}Identity')
+              if identity is None or any(identity.get(k) != v for k, v in {
+                  'Id': expected['name'], 'Publisher': expected['publisher'], 'Version': version
+              }.items()):
+                  raise SystemExit('VSIX XML identity does not match package.json')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write(f'Package: `msdoslite.siege-language-tools` **{version}**\n\n')
+              summary.write(f'GitHub Release: {release["html_url"]}\n\nSHA256: `{digest}`\n\n')
+          print(f'Verified {name}: sha256:{digest}')
+          PY
+
+      - name: Install publishing tools without lifecycle scripts
+        run: npm ci --ignore-scripts
+
+      - name: Publish the downloaded VSIX using Trusted Publishing
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: npx --no-install vsce publish --oidc --packagePath "artifact/siege-language-tools-${RELEASE_TAG#v}.vsix"
+
+      - name: Record publication
+        run: echo 'Published to https://marketplace.visualstudio.com/items?itemName=msdoslite.siege-language-tools' >> "$GITHUB_STEP_SUMMARY"
